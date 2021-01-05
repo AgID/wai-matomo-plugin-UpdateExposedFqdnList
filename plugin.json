@@ -1,0 +1,29 @@
+{
+    "name": "UpdateExposedFqdnList",
+    "description": "Update the fqdn list when a website is added",
+    "version": "0.1.0",
+    "theme": false,
+    "require": {
+        "piwik": ">=3.13.0-stable,<5.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Giampaolo Fois",
+            "email": "giampaolo.fois@softfobia.com",
+            "homepage": ""
+        }
+    ],
+    "support": {
+        "email": "",
+        "issues": "",
+        "forum": "",
+        "irc": "",
+        "wiki": "",
+        "source": "",
+        "docs": "",
+        "rss": ""
+    },
+    "homepage": "",
+    "license": "GPL v3+",
+    "keywords": []
+}
