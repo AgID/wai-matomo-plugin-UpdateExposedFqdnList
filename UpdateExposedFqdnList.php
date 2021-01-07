@@ -45,7 +45,7 @@ class UpdateExposedFqdnList extends \Piwik\Plugin
             $urls = API::getInstance()->getSiteUrlsFromId($idSite);
             $urlsToString = implode(" ", $urls);
 
-            $redis->set('websiteList-'.$idSite, $urlsToString);
+            $redis->set($idSite, $urlsToString);
         }
         
         var_dump($isConnected);
