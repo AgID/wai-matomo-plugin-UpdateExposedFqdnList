@@ -36,11 +36,11 @@ class UpdateExposedFqdnList extends \Piwik\Plugin
 
         $redis = new Redis();
 
-        $redis->connect($config["redis_ip"], $config["redis_port"]);
+        $redis->connect($config["redis_ip"], (int) $config["redis_port"], 3);
         $isConnected = $redis->ping();
         
         if($isConnected){
-            $redis->select($config['db_index']);
+            $redis->select((int) $config['db_index']);
 
             $urls = API::getInstance()->getSiteUrlsFromId($idSite);
             $urlsToString = implode(" ", $urls);
