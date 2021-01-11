@@ -47,8 +47,6 @@ class UpdateExposedFqdnList extends \Piwik\Plugin
 
             $redis->set($idSite, $urlsToString);
         }
-        
-        var_dump($isConnected);
 
         return $settings;
     }
