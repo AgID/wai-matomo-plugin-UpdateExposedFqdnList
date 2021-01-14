@@ -17,7 +17,8 @@ class UpdateExposedFqdnList extends \Piwik\Plugin
 {
     protected $pluginConfig;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         $this->pluginConfig = Config::getInstance()->{$this->pluginName};
@@ -38,14 +39,17 @@ class UpdateExposedFqdnList extends \Piwik\Plugin
 
         $redis->connect($config["redis_ip"], (int) $config["redis_port"], 3);
         $isConnected = $redis->ping();
-        
-        if($isConnected){
+
+        if ($isConnected) {
             $redis->select((int) $config['db_index']);
+            $isValueSet = $redis->get($idSite);
 
             $urls = API::getInstance()->getSiteUrlsFromId($idSite);
             $urlsToString = implode(" ", $urls);
 
-            $redis->set($idSite, $urlsToString);
+            if ($isValueSet === false || $isValueSet !== $urlsToString) {
+                $redis->set($idSite, $urlsToString);
+            }
         }
     }
 }
