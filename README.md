@@ -14,9 +14,9 @@ Add the following section to your `config.ini.php`:
 
 ```ini
 [UpdateExposedFqdnList]
-redis_ip = '127.20.0.0'
+redis_host = '127.20.0.0'
 redis_port = 6379
-db_index = 0
+redis_db_index = 0
 
 ```
 
